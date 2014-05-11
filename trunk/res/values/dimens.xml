@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_margin">1dip</dimen>
+    
+    <!-- LEFT MENU DIMENSION -->
+    <dimen name="left_menu_image_folder_size">100dip</dimen>
+    <dimen name="left_menu_behind_width">150dip</dimen>
+    <!-- LEFT MENU DIMENSION -->
+    
+    <!-- HEADER BAR -->
+    <dimen name="height_of_header_bar">50dip</dimen>
+    <!-- HEADER BAR -->
+    
+    <dimen name="text_day_with_month_margin">-5dip</dimen>
+    <!-- COMMON MARGIN -->
+    <dimen name="layout_margin_normal">10dip</dimen>
+    <dimen name="layout_margin_small">5dip</dimen>
+    <!-- COMMON MARGIN -->
+    
+    <!-- COMMON FOR TEXT -->
+    <dimen name="text_size_special_big">38sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <!-- COMMON FOR TEXT -->
+</resources>
