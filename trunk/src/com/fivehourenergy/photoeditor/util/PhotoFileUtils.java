@@ -1,5 +1,6 @@
 package com.fivehourenergy.photoeditor.util;
 
+
 public class PhotoFileUtils {
 
 	private String currentPhotoCopyPath = "";

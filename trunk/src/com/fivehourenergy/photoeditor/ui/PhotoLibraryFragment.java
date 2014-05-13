@@ -201,6 +201,12 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 			case ACTION_VIEW_INFO:
 				ActionMenuExecutor.executeActionPhotoInfo(PhotoLibraryFragment.this,photoItem.photoAbsolutePath);
 				break;
+			case ACTION_SHARE:
+				ActionMenuExecutor.executeActionShare(getActivity(), photoItem.photoAbsolutePath);
+				break;
+			case ACTION_SET_WALLPAPER:
+				ActionMenuExecutor.executeActionSetWallPaper(getActivity(),photoItem.photoAbsolutePath);
+				break;
 			default:
 				break;
 			}
