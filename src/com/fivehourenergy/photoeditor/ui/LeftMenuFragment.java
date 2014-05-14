@@ -33,6 +33,7 @@ public class LeftMenuFragment extends MenuFragment<PhotoFolderModel>{
 		ArrayList<PhotoFolderModel> datas = DataController.getInstance().getPhotoEditorFileManager().getAllFolder();
 		if(datas!=null){
 			mAdapter = new LeftMenuAdapter(getActivity(),datas);
+			mListView.setCacheColorHint(0);
 			mListView.setAdapter(mAdapter);
 			mListView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -93,7 +94,7 @@ public class LeftMenuFragment extends MenuFragment<PhotoFolderModel>{
 		public View getView(int position, View convertView, ViewGroup parent) {
 			View row = convertView;
 			if (row == null) {
-				row = LayoutInflater.from(mActivity).inflate(R.layout.menu_item, null);
+				row = LayoutInflater.from(mActivity).inflate(R.layout.menu_item1, null);
 			}
 			ImageView imageView = ViewHolder.get(row, R.id.imgPhotoItem);
 			TextView tvName = ViewHolder.get(row, R.id.tvName);

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.GridView;
 
 import com.fivehourenergy.photoeditor.R;
@@ -66,7 +67,15 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View v, int pos,
 					long id) {
-//				getMainActiviy().openAviaryEditor(mDatas.get(pos).photoAbsolutePath);
+				getMainActiviy().openAviaryEditor(mDatas.get(pos).photoAbsolutePath);
+			}
+		});
+		
+		mGridView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> adapterView, View v, int pos,
+					long id) {
 				int type;
 				if(getMainActiviy().currentScreenPos == LeftMenuFragment.FAVOURITE_POS){
 					type = QuickActionMenu.FAVOURITE_TYPE;
@@ -82,7 +91,9 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 				input.data.isFavourite = DatabaseController.getInstanceOfDataSource().isFavourite(mAdapter.getItem(pos).photoAbsolutePath);
 				input.listener = new OnActionItemClick(mAdapter.getItem(pos),pos);
 				QuickActionMenu.getInstance().showActionMenu3D(input);
+				return true;
 			}
+			
 		});
 	}
 	
