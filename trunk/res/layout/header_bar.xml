@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_of_header_bar"
-        android:background="@color/bg_header_bar"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -15,7 +14,7 @@
             android:id="@+id/imgShowMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/aviary_ic_alert_small" />
+            android:src="@drawable/ic_menu" />
 
         <TextView
             android:id="@+id/title"
