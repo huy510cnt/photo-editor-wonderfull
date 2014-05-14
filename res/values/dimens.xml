@@ -3,8 +3,9 @@
     <dimen name="item_margin">1dip</dimen>
     
     <!-- LEFT MENU DIMENSION -->
-    <dimen name="left_menu_image_folder_size">100dip</dimen>
-    <dimen name="left_menu_behind_width">150dip</dimen>
+    <dimen name="left_menu_image_folder_size">65dip</dimen>
+    <dimen name="left_menu_behind_width">250dip</dimen>
+    <dimen name="left_menu_item_height">110dip</dimen>
     <!-- LEFT MENU DIMENSION -->
     
     <!-- HEADER BAR -->

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_header_bar">#0D7B92</color>
+    <color name="bg_header_bar">#B49D48</color>
     <color name="text_day_color">#EA9B20</color>
     <color name="text_month_year_color">#85BE9F</color>
     <color name="holo_blue">#FF33E5B5</color>
