@@ -18,8 +18,8 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 	protected Fragment fragContainer;
 	protected OnHeaderBarClickListener mListener;
 	
-	public ImageView btnUtility;
-	public Button btnShare;
+	public ImageView btnAlbum;
+	public ImageView btnColage;
 	public ImageView btnCamera;
 	public ImageView imgShowMenu;
 	public TextView tvTitle;
@@ -35,8 +35,8 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 		if(fragContainer instanceof SlideShowFragment) return null;
 		View v = inflater.inflate(R.layout.header_bar, null);
 		if(fragContainer!=null && fragContainer instanceof LeftMenuFragment) return null;
-		btnUtility = (ImageView) v.findViewById(R.id.btnUtility);
-//		btnShare	= (Button) v.findViewById(R.id.btnShare);
+		btnAlbum = (ImageView) v.findViewById(R.id.btnAlbum);
+		btnColage	= (ImageView) v.findViewById(R.id.btnColage);
 		btnCamera	= (ImageView) v.findViewById(R.id.btnCamera);
 		imgShowMenu = (ImageView) v.findViewById(R.id.imgShowMenu);
 		tvTitle = (TextView) v.findViewById(R.id.title);
@@ -44,7 +44,8 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 //		btnShare.setOnClickListener(this);
 		btnCamera.setOnClickListener(this);
 		imgShowMenu.setOnClickListener(this);
-		btnUtility.setOnClickListener(this);
+		btnAlbum.setOnClickListener(this);
+		btnColage.setOnClickListener(this);
 		return v;
 	}
 	
@@ -55,15 +56,15 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btnUtility:
+		case R.id.btnAlbum:
 			if(mListener!=null)
-				mListener.onUtilityButtonClick(v);
+				mListener.onAlbumButtonClick(v);
 			break;
-		/*case R.id.btnShare:
+		case R.id.btnColage:
 			if (mListener !=null) {
-				mListener.onShareButtonClick(v);
+				mListener.onColageButtonClick(v);
 			}
-			break;*/
+			break;
 		case R.id.btnCamera:
 			if (mListener!=null) {
 				mListener.onCameraButtonClick(v);
@@ -80,8 +81,8 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 	}
 	
 	public interface OnHeaderBarClickListener{
-		public void onUtilityButtonClick(View v);
-		public void onShareButtonClick(View v);
+		public void onAlbumButtonClick(View v);
+		public void onColageButtonClick(View v);
 		public void onCameraButtonClick(View v);
 		public void onShowMenuClick(View v);
 	}

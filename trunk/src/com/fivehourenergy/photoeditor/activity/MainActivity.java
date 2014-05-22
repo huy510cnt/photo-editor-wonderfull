@@ -54,4 +54,9 @@ public class MainActivity extends AviaryConfigActivity{
 		return mPopupAlbumPhotos;
 	}
 	
+	@Override
+	public void onPreload() {
+		mPopupAlbumPhotos.update();
+	}
+	
 }

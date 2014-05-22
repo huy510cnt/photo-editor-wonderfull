@@ -10,6 +10,7 @@ import android.view.Display;
 import android.view.Window;
 
 import com.fivehourenergy.photoeditor.R;
+import com.fivehourenergy.photoeditor.util.PhotoEditorSizeHandler;
 
 public class BaseFragmentActivity extends FragmentActivity{
 
@@ -42,6 +43,9 @@ public class BaseFragmentActivity extends FragmentActivity{
 			SCREEN_WIDTH = display.getWidth();
 			SCREEN_HEIGHT = display.getHeight();
 		}
+		
+		PhotoEditorSizeHandler.getInstance().setScreenHeight(SCREEN_HEIGHT);
+		PhotoEditorSizeHandler.getInstance().setScreenWidth(SCREEN_WIDTH);
 	}
 	
 	/**

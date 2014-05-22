@@ -143,7 +143,7 @@ public class PhotoLibraryAdapter extends BaseListAdapter<PhotoItemModel>{
 		imageView.getLayoutParams().height = size;
 		
 //		UniversalImageLoader.getInstance().loadImageView(imageView,"file:///"+getItem(position).photoAbsolutePath, size,size);
-		UniversalImageLoader.getInstance().displayImage("file:///"+getItem(position).photoAbsolutePath, imageView, IDisplayImageOption.defaultOption);
+		UniversalImageLoader.getInstance().displayImage("file:///"+getItem(position).photoAbsolutePath, imageView, IDisplayImageOption.curverOption);
 
 		return row;
 	}

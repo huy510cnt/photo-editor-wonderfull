@@ -217,6 +217,7 @@ public class AviaryConfigActivity extends BaseSlidingFragmentActivity {
 
 	public void onReload(){
 		DataController.getInstance().getPhotoEditorFileManager().reloadData();
+		onPreload();
 		Fragment menuFragment = getSupportFragmentManager().findFragmentById(R.id.menu_frame);
 		Fragment contentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
 		if(menuFragment instanceof PhotoEditorObserver){
@@ -226,6 +227,10 @@ public class AviaryConfigActivity extends BaseSlidingFragmentActivity {
 		if(contentFragment instanceof PhotoEditorObserver){
 			((PhotoEditorObserver)contentFragment).update();
 		}
+	}
+	
+	public void onPreload(){
+		
 	}
 	/**
 	 * lo-res process completed, ask the user if wants to process also the hi-res image
