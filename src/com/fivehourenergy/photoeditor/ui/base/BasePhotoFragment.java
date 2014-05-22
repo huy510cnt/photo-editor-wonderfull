@@ -15,11 +15,13 @@ import com.fivehourenergy.photoeditor.ui.PhotoLibraryAdapter.GridViewType;
 import com.fivehourenergy.photoeditor.ui.PhotoLibraryFragment.OnActionItemClick;
 import com.fivehourenergy.photoeditor.ui.SlideShowFragment;
 import com.fivehourenergy.photoeditor.ui.base.PhotoEditorHeaderBar.OnHeaderBarClickListener;
+import com.fivehourenergy.photoeditor.widget.quickaction3d.PopupAlbumPhotos;
 import com.fivehourenergy.photoeditor.widget.quickaction3d.QuickAction;
 
 public abstract class BasePhotoFragment extends BaseFragment implements OnHeaderBarClickListener,PhotoEditorObserver{
 
 	protected PhotoEditorHeaderBar mHeaderBar;
+	protected View vHeader;
 	
 	@Override
 	protected View onCreateHeaderView(LayoutInflater inflater,
@@ -28,7 +30,8 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 			mHeaderBar = new PhotoEditorHeaderBar(this);
 		}
 		if(getTitle()!=null) mHeaderBar.setTitle(getTitle());
-		return mHeaderBar.onCreateHeaderView(inflater, container);
+		vHeader = mHeaderBar.onCreateHeaderView(inflater, container);
+		return vHeader;
 	}
 	
 	public MainActivity getMainActiviy(){
@@ -85,7 +88,7 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 	
 	@Override
 	public void onCameraButtonClick(View v) {
-		
+		getMainActiviy().getPopupAlbumPhotos().show(vHeader);
 	}
 	
 	@Override
