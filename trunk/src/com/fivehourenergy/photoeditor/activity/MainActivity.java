@@ -8,10 +8,12 @@ import com.fivehourenergy.photoeditor.data.DataController;
 import com.fivehourenergy.photoeditor.data.model.PhotoItemModel;
 import com.fivehourenergy.photoeditor.ui.LeftMenuFragment;
 import com.fivehourenergy.photoeditor.ui.PhotoLibraryFragment;
+import com.fivehourenergy.photoeditor.widget.quickaction3d.PopupAlbumPhotos;
 
 public class MainActivity extends AviaryConfigActivity{
 
 	public int currentScreenPos = LeftMenuFragment.LIBRARY_POS;
+	public PopupAlbumPhotos mPopupAlbumPhotos;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,11 @@ public class MainActivity extends AviaryConfigActivity{
 	
 	public void openAviaryEditor(String absolutePath){
 		startFeather(absolutePath);
+	}
+	
+	public PopupAlbumPhotos getPopupAlbumPhotos(){
+		if(mPopupAlbumPhotos==null) mPopupAlbumPhotos = new PopupAlbumPhotos(this);
+		return mPopupAlbumPhotos;
 	}
 	
 }

@@ -76,7 +76,7 @@ public class PopupWindows {
 		else 
 			mWindow.setBackgroundDrawable(mBackground);
 
-		mWindow.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
+		mWindow.setWidth(getWindowWidth());
 		mWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
 		mWindow.setTouchable(true);
 		mWindow.setFocusable(true);
@@ -116,6 +116,9 @@ public class PopupWindows {
 		setContentView(inflator.inflate(layoutResID, null));
 	}
 
+	protected int getWindowWidth(){
+		return WindowManager.LayoutParams.WRAP_CONTENT;
+	}
 	/**
 	 * Set listener on window dismissed.
 	 * 
