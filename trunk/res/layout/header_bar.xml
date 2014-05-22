@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9654B6"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -14,7 +15,7 @@
             android:id="@+id/imgShowMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_apps" />
+            android:src="@drawable/ic_menu" />
 
         <TextView
             android:id="@+id/title"
@@ -22,26 +23,30 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="16sp"
-            android:text="Title" />
+            android:text="Photo Editor Wonder"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textColor="#D7D7D7"
+            android:textStyle="italic"
+            android:textSize="17sp" />
 
         <ImageView
-            android:id="@+id/btnUtility"
+            android:id="@+id/btnAlbum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_apps" />
+            android:src="@drawable/ic_choose" />
 
-        <!-- <Button
-            android:id="@+id/btnShare"
+        <ImageView
+            android:id="@+id/btnColage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share" /> -->
+            android:src="@drawable/ic_menu" />
 
         <ImageView
             android:id="@+id/btnCamera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_camera"/>
+            android:src="@drawable/ic_camera" />
     </LinearLayout>
 
 </LinearLayout>

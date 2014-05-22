@@ -10,12 +10,16 @@
         android:id="@+id/imgAlbumItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_margin_small"
+        android:layout_marginBottom="@dimen/layout_margin_small"
         android:src="@drawable/icon"/>
 
     <TextView 
         android:id="@+id/tName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/layout_margin_small"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:textColor="@android:color/white"
         android:text="name"/>
 </LinearLayout>
