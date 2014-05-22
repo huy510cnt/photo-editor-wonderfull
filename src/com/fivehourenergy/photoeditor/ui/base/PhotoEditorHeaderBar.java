@@ -18,9 +18,9 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 	protected Fragment fragContainer;
 	protected OnHeaderBarClickListener mListener;
 	
-	public Button btnUtility;
+	public ImageView btnUtility;
 	public Button btnShare;
-	public Button btnCamera;
+	public ImageView btnCamera;
 	public ImageView imgShowMenu;
 	public TextView tvTitle;
 	
@@ -35,13 +35,13 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 		if(fragContainer instanceof SlideShowFragment) return null;
 		View v = inflater.inflate(R.layout.header_bar, null);
 		if(fragContainer!=null && fragContainer instanceof LeftMenuFragment) return null;
-		btnUtility = (Button) v.findViewById(R.id.btnUtility);
-		btnShare	= (Button) v.findViewById(R.id.btnShare);
-		btnCamera	= (Button) v.findViewById(R.id.btnCamera);
+		btnUtility = (ImageView) v.findViewById(R.id.btnUtility);
+//		btnShare	= (Button) v.findViewById(R.id.btnShare);
+		btnCamera	= (ImageView) v.findViewById(R.id.btnCamera);
 		imgShowMenu = (ImageView) v.findViewById(R.id.imgShowMenu);
 		tvTitle = (TextView) v.findViewById(R.id.title);
 		
-		btnShare.setOnClickListener(this);
+//		btnShare.setOnClickListener(this);
 		btnCamera.setOnClickListener(this);
 		imgShowMenu.setOnClickListener(this);
 		btnUtility.setOnClickListener(this);
@@ -59,11 +59,11 @@ public class PhotoEditorHeaderBar implements OnClickListener {
 			if(mListener!=null)
 				mListener.onUtilityButtonClick(v);
 			break;
-		case R.id.btnShare:
+		/*case R.id.btnShare:
 			if (mListener !=null) {
 				mListener.onShareButtonClick(v);
 			}
-			break;
+			break;*/
 		case R.id.btnCamera:
 			if (mListener!=null) {
 				mListener.onCameraButtonClick(v);
