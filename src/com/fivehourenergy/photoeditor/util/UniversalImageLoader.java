@@ -344,6 +344,19 @@ public class UniversalImageLoader extends ImageLoader{
 												.bitmapConfig(Bitmap.Config.RGB_565)
 												.displayer(new FadeInBitmapDisplayer(300))
 												.build();
+		
+		/** The default option. */
+		DisplayImageOptions curverOption 	= new DisplayImageOptions.Builder()
+												.cacheInMemory(true)
+												.cacheOnDisc(false)
+//												.imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
+												.bitmapConfig(Bitmap.Config.RGB_565)
+												.considerExifParams(true)
+												.showStubImage(R.drawable.ic_stub)
+												.showImageForEmptyUri(R.drawable.ic_empty)
+												.showImageOnFail(R.drawable.ic_error)
+												.displayer(new RoundedBitmapDisplayer(20))
+												.build();
 	}
 
 }

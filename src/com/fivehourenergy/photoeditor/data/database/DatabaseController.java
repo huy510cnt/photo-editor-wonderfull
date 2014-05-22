@@ -188,28 +188,32 @@ public class DatabaseController {
 	public PhotoItemModel getPhotoItemByPath(String absolutePath){
 		PhotoItemModel photoItem = null;
 		open();
-		Cursor cusor = mDataBase.query(DatabaseHelper.FAVOURITE_TABLE,null, 
-				DatabaseHelper.PHOTO_PATH +" = '"+absolutePath+"'", null, null, null, null);
-		if(cusor != null && cusor.getCount()>0) {
-			cusor.moveToFirst();
-			int colID 				= cusor.getColumnIndex(DatabaseHelper.PHOTO_ID);
-			int colName 			= cusor.getColumnIndex(DatabaseHelper.PHOTO_NAME);
-			int colPath 			= cusor.getColumnIndex(DatabaseHelper.PHOTO_PATH);
-			int colFolderPath 		= cusor.getColumnIndex(DatabaseHelper.PHOTO_FOLDER_PATH);
-			int colDate				= cusor.getColumnIndex(DatabaseHelper.PHOTO_DATE_MODIFIED);
-			
-				photoItem = new PhotoItemModel();
+		try{
+			Cursor cusor = mDataBase.query(DatabaseHelper.FAVOURITE_TABLE,null, 
+					DatabaseHelper.PHOTO_PATH +" = '"+absolutePath+"'", null, null, null, null);
+			if(cusor != null && cusor.getCount()>0) {
+				cusor.moveToFirst();
+				int colID 				= cusor.getColumnIndex(DatabaseHelper.PHOTO_ID);
+				int colName 			= cusor.getColumnIndex(DatabaseHelper.PHOTO_NAME);
+				int colPath 			= cusor.getColumnIndex(DatabaseHelper.PHOTO_PATH);
+				int colFolderPath 		= cusor.getColumnIndex(DatabaseHelper.PHOTO_FOLDER_PATH);
+				int colDate				= cusor.getColumnIndex(DatabaseHelper.PHOTO_DATE_MODIFIED);
 				
-				photoItem.id = cusor.getInt(colID);
-				photoItem.photoName = cusor.getString(colName);
-				photoItem.photoAbsolutePath = cusor.getString(colPath);
-				photoItem.folderPath = cusor.getString(colFolderPath);
-				String strDate = cusor.getString(colDate);
-				photoItem.photoDate = photoItem.stringToDate(strDate);
-			cusor.close();
+					photoItem = new PhotoItemModel();
+					
+					photoItem.id = cusor.getInt(colID);
+					photoItem.photoName = cusor.getString(colName);
+					photoItem.photoAbsolutePath = cusor.getString(colPath);
+					photoItem.folderPath = cusor.getString(colFolderPath);
+					String strDate = cusor.getString(colDate);
+					photoItem.photoDate = photoItem.stringToDate(strDate);
+				cusor.close();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			close();
+			return null;
 		}
-		
-		
 		close();
 		
 		return photoItem;

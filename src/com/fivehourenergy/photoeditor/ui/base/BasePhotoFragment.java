@@ -1,5 +1,6 @@
 package com.fivehourenergy.photoeditor.ui.base;
 
+import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.fivehourenergy.photoeditor.ui.PhotoLibraryAdapter.GridViewType;
 import com.fivehourenergy.photoeditor.ui.PhotoLibraryFragment.OnActionItemClick;
 import com.fivehourenergy.photoeditor.ui.SlideShowFragment;
 import com.fivehourenergy.photoeditor.ui.base.PhotoEditorHeaderBar.OnHeaderBarClickListener;
+import com.fivehourenergy.photoeditor.util.PhotoEditorSizeHandler;
 import com.fivehourenergy.photoeditor.widget.quickaction3d.PopupAlbumPhotos;
 import com.fivehourenergy.photoeditor.widget.quickaction3d.QuickAction;
 
@@ -44,7 +46,7 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 	}
 	
 	@Override
-	public void onUtilityButtonClick(View v) {
+	public void onColageButtonClick(View v) {
 		final ActionInput input = new ActionInput();
 		input.activity = getActivity();
 		input.anchor = v;
@@ -88,12 +90,12 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 	
 	@Override
 	public void onCameraButtonClick(View v) {
-		getMainActiviy().getPopupAlbumPhotos().show(vHeader);
 	}
 	
 	@Override
-	public void onShareButtonClick(View v) {
-		
+	public void onAlbumButtonClick(View v) {
+		initHeaderSize();
+		getMainActiviy().getPopupAlbumPhotos().show(v);
 	}
 	
 	@Override
@@ -102,5 +104,16 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 		
 	}
 	
+	private void initHeaderSize(){
+		if (vHeader!=null) {
+			if (PhotoEditorSizeHandler.getInstance().getHeaderRect() == null) {
+				int[] location 		= new int[2];
+				vHeader.getLocationOnScreen(location);
+				Rect anchorRect 	= new Rect(location[0], location[1], location[0] + vHeader.getWidth(), location[1] 
+				                	+ vHeader.getHeight());
+				PhotoEditorSizeHandler.getInstance().setHeaderRect(anchorRect);
+			}
+		}
+	}
 	protected abstract String getTitle();
 }

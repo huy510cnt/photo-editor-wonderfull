@@ -9,6 +9,7 @@ import com.fivehourenergy.photoeditor.data.database.DatabaseController;
 import com.fivehourenergy.photoeditor.data.model.PhotoFolderModel;
 import com.fivehourenergy.photoeditor.ui.PhotoLibraryFragment;
 import com.fivehourenergy.photoeditor.ui.base.BaseListAdapter;
+import com.fivehourenergy.photoeditor.util.PhotoEditorSizeHandler;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader.IDisplayImageOption;
 import com.fivehourenergy.photoeditor.widget.ViewHolder;
@@ -16,11 +17,13 @@ import com.fivehourenergy.photoeditor.widget.ViewHolder;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -36,6 +39,7 @@ public class PopupAlbumPhotos extends PopupWindows{
 	
 	private GridView mGridView;
 	private AlbumPhotosAdapter mAdapter;
+	private int mWindowHeight = WindowManager.LayoutParams.WRAP_CONTENT;
 	
 	public PopupAlbumPhotos(Context context) {
 		super(context);
@@ -80,8 +84,8 @@ public class PopupAlbumPhotos extends PopupWindows{
 					PhotoLibraryFragment library = new PhotoLibraryFragment();
 					getMainActiviy().switchContent(library, false);
 					getMainActiviy().currentScreenPos = currentPosition;
-					dismiss();
 				}
+				dismiss();
 			}
 		});
 	}
@@ -121,20 +125,27 @@ public class PopupAlbumPhotos extends PopupWindows{
 	}
 	
 	public void show(View anchor) {
-		preShow();
-		int[] location 		= new int[2];
-		anchor.getLocationOnScreen(location);
-		Rect anchorRect 	= new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] 
-		                	+ anchor.getHeight());
+//		int[] location 		= new int[2];
+//		anchor.getLocationOnScreen(location);
+//		Rect anchorRect 	= new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] 
+//		                	+ anchor.getHeight());
+		Rect anchorRect = PhotoEditorSizeHandler.getInstance().getHeaderRect();
 		int xLocation = anchorRect.left;
 		int yLocation = anchorRect.bottom;
+		mWindowHeight = MainActivity.SCREEN_HEIGHT - yLocation;
+		preShow();
 		mWindow.showAtLocation(anchor, Gravity.NO_GRAVITY, xLocation, yLocation);
 	}
 	
 	
 	@Override
 	protected int getWindowWidth() {
-		return MainActivity.SCREEN_WIDTH;
+		return WindowManager.LayoutParams.MATCH_PARENT;
+	}
+	
+	@Override
+	protected int getWindowHeight() {
+		return mWindowHeight;
 	}
 	
 	class AlbumPhotosAdapter extends BaseListAdapter<PhotoFolderModel>{
