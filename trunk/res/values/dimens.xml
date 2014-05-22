@@ -9,7 +9,7 @@
     <!-- LEFT MENU DIMENSION -->
     
     <!-- HEADER BAR -->
-    <dimen name="height_of_header_bar">50dip</dimen>
+    <dimen name="height_of_header_bar">55dip</dimen>
     <!-- HEADER BAR -->
     
     <dimen name="text_day_with_month_margin">-5dip</dimen>
