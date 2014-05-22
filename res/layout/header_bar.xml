@@ -14,7 +14,7 @@
             android:id="@+id/imgShowMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu" />
+            android:src="@drawable/ic_apps" />
 
         <TextView
             android:id="@+id/title"
@@ -22,25 +22,26 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textSize="16sp"
             android:text="Title" />
 
-        <Button
+        <ImageView
             android:id="@+id/btnUtility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Utility" />
+            android:src="@drawable/ic_apps" />
 
-        <Button
+        <!-- <Button
             android:id="@+id/btnShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Share" />
+            android:text="Share" /> -->
 
-        <Button
+        <ImageView
             android:id="@+id/btnCamera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Camera" />
+            android:src="@drawable/ic_camera"/>
     </LinearLayout>
 
 </LinearLayout>
