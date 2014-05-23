@@ -15,6 +15,7 @@
     <dimen name="text_day_with_month_margin">-5dip</dimen>
     <!-- COMMON MARGIN -->
     <dimen name="layout_margin_normal">10dip</dimen>
+    <dimen name="layout_margin_xsmall">7dip</dimen>
     <dimen name="layout_margin_small">5dip</dimen>
     <!-- COMMON MARGIN -->
     

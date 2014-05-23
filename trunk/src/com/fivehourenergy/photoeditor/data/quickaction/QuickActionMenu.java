@@ -183,8 +183,8 @@ public class QuickActionMenu {
 		
 		mActionMenuSlideShow = new ActionMenuItem();
 		mActionMenuSlideShow.addAction(ActionMenu.ACTION_SLIDE_SHOW)
-					.addResIcon(R.drawable.icon)
-					.addText("Slide Show");
+					.addResIcon(R.drawable.ic_slideshow);
+//					.addText("Slide Show");
 		
 		mActionMenuSortPhoto = new ActionMenuItem();
 		mActionMenuSortPhoto.addAction(ActionMenu.ACTION_SORT_PHOTO)
@@ -268,23 +268,23 @@ public class QuickActionMenu {
 		
 		mActionMenuGridNormal = new ActionMenuItem();
 		mActionMenuGridNormal.addAction(ActionMenu.ACTION_VIEW_GRID_NORMAL)
-					.addResIcon(R.drawable.icon)
-					.addText("Grid");
+					.addResIcon(R.drawable.ic_colage_grid_normal);
+//					.addText("Grid");
 
 		mActionMenuGridDate = new ActionMenuItem();
 		mActionMenuGridDate.addAction(ActionMenu.ACTION_VIEW_GRID_DATE)
-					.addResIcon(R.drawable.icon)
-					.addText("Grid Date");
+					.addResIcon(R.drawable.ic_colage_grid_date);
+//					.addText("Grid Date");
 		
 		mActionMenuCurver = new ActionMenuItem();
 		mActionMenuCurver.addAction(ActionMenu.ACTION_VIEW_CURVER)
-					.addResIcon(R.drawable.icon)
-					.addText("Curver");
+					.addResIcon(R.drawable.ic_colage_grid_curver);
+//					.addText("Curver");
 		
 		mActionMenuStaggered = new ActionMenuItem();
 		mActionMenuStaggered.addAction(ActionMenu.ACTION_VIEW_STAGGERED)
-					.addResIcon(R.drawable.icon)
-					.addText("Staggered");
+					.addResIcon(R.drawable.ic_colage_staggered);
+//					.addText("Staggered");
 		
 		mActionMenuInfo = new ActionMenuItem();
 		mActionMenuInfo.addAction(ActionMenu.ACTION_VIEW_INFO)
