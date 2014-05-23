@@ -5,13 +5,15 @@
     android:layout_height="wrap_content" 
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/action_item_btn">
+    android:background="@android:color/transparent">
             
     <ImageView
         android:id="@+id/iv_icon"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content" 
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:padding="@dimen/layout_margin_xsmall"
+        android:background="@drawable/bg_orange_circle"/>
 
     <TextView 
         android:id="@+id/tv_title"

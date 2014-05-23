@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#9654B6"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_header"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -15,7 +15,9 @@
             android:id="@+id/imgShowMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu" />
+            android:background="@drawable/bg_orange_circle"
+            android:padding="@dimen/layout_margin_normal"
+            android:src="@drawable/ic_menu_list" />
 
         <TextView
             android:id="@+id/title"

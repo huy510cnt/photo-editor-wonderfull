@@ -51,7 +51,7 @@ public abstract class BasePhotoFragment extends BaseFragment implements OnHeader
 		input.activity = getActivity();
 		input.anchor = v;
 		input.menuType = QuickActionMenu.NORMAL_TYPE;
-		input.orientation = QuickAction.VERTICAL;
+		input.orientation = QuickAction.HORIZONTAL;
 		input.listener = new OnActionMenuClickListener() {
 			
 			@Override
