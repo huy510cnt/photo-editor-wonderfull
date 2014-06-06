@@ -20,7 +20,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Gallery;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.fivehourenergy.photoeditor.R;
@@ -34,10 +34,7 @@ import com.fivehourenergy.photoeditor.ui.base.BasePhotoFragment;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader.IDisplayImageOption;
 import com.fivehourenergy.photoeditor.widget.ExtendedViewPager;
-import com.fivehourenergy.photoeditor.widget.HorizontalListView;
 import com.fivehourenergy.photoeditor.widget.TouchImageView;
-import com.fivehourenergy.photoeditor.widget.transitionviewpager.TransitionViewPager;
-import com.fivehourenergy.photoeditor.widget.transitionviewpager.TransitionViewPager.TransitionEffect;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
@@ -211,7 +208,7 @@ public class SlideShowFragment extends BasePhotoFragment implements OnClickListe
 
 		@Override
 		public Object instantiateItem(ViewGroup view, int position) {
-			View imageLayout = LayoutInflater.from(mActivity).inflate(R.layout.slide_show_item, view, false);
+			View imageLayout = LayoutInflater.from(mActivity).inflate(R.layout.slide_show_item, null);
 			TouchImageView imageView = (TouchImageView) imageLayout.findViewById(R.id.image);
 			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
 

@@ -116,7 +116,10 @@ public class TouchImageView extends ImageView {
     private void sharedConstructing(Context context) {
         super.setClickable(true);
         this.context = context;
-        mScaleDetector = new ScaleGestureDetector(context, new ScaleListener());
+        ScaleListener scaleListner = new ScaleListener(); //Added
+
+        mScaleDetector = new ScaleGestureDetector(context, scaleListner); //Edited
+//        mScaleDetector = new ScaleGestureDetector(context, new ScaleListener());
         mGestureDetector = new GestureDetector(context, new GestureListener());
         matrix = new Matrix();
         prevMatrix = new Matrix();
@@ -133,6 +136,7 @@ public class TouchImageView extends ImageView {
         setScaleType(ScaleType.MATRIX);
         setState(State.NONE);
         onDrawReady = false;
+        scaleListner.onScale(mScaleDetector);//Added
         super.setOnTouchListener(new PrivateOnTouchListener());
     }
 
