@@ -33,7 +33,9 @@ import com.fivehourenergy.photoeditor.ui.PhotoLibraryAdapter.GridViewType;
 import com.fivehourenergy.photoeditor.ui.base.BasePhotoFragment;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader.IDisplayImageOption;
+import com.fivehourenergy.photoeditor.widget.ExtendedViewPager;
 import com.fivehourenergy.photoeditor.widget.HorizontalListView;
+import com.fivehourenergy.photoeditor.widget.TouchImageView;
 import com.fivehourenergy.photoeditor.widget.transitionviewpager.TransitionViewPager;
 import com.fivehourenergy.photoeditor.widget.transitionviewpager.TransitionViewPager.TransitionEffect;
 import com.nostra13.universalimageloader.core.assist.FailReason;
@@ -42,7 +44,7 @@ import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListene
 @SuppressLint("ValidFragment")
 public class SlideShowFragment extends BasePhotoFragment implements OnClickListener{
 
-	public TransitionViewPager pager;
+	public ExtendedViewPager pager;
 	public ViewGroup vBottomBar;
 	public ArrayList<PhotoItemModel> mDatas;
 	private Gallery mGallery;
@@ -63,7 +65,7 @@ public class SlideShowFragment extends BasePhotoFragment implements OnClickListe
 		vBottomBar.findViewById(R.id.img_info).setOnClickListener(this);
 		
 		final GestureDetector tapGestureDetector = new GestureDetector(getActivity(), new TapGestureListener());
-		pager = (TransitionViewPager) v.findViewById(R.id.pager);
+		pager = (ExtendedViewPager) v.findViewById(R.id.pager);
 		pager.setOnTouchListener(new OnTouchListener() {
 	        public boolean onTouch(View v, MotionEvent event) {
 	        	tapGestureDetector.onTouchEvent(event);
@@ -114,7 +116,7 @@ public class SlideShowFragment extends BasePhotoFragment implements OnClickListe
 		if(mDatas!= null){
 			mGallery.setAdapter(new PhotoLibraryAdapter(getActivity(), mDatas, GridViewType.GALLERY));
 			pager.setAdapter(new ImagePagerAdapter(getActivity(),mDatas));
-			pager.setTransitionEffect(TransitionEffect.Accordion);
+//			pager.setTransitionEffect(TransitionEffect.Accordion);
 			pager.setOnPageChangeListener(new OnPageChangeListener() {
 				
 				@Override
@@ -210,7 +212,7 @@ public class SlideShowFragment extends BasePhotoFragment implements OnClickListe
 		@Override
 		public Object instantiateItem(ViewGroup view, int position) {
 			View imageLayout = LayoutInflater.from(mActivity).inflate(R.layout.slide_show_item, view, false);
-			ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
+			TouchImageView imageView = (TouchImageView) imageLayout.findViewById(R.id.image);
 			final ProgressBar spinner = (ProgressBar) imageLayout.findViewById(R.id.loading);
 
 			UniversalImageLoader.getInstance().displayImage("file:///"+mListDatas.get(position).photoAbsolutePath, imageView, IDisplayImageOption.pagerOption, new SimpleImageLoadingListener() {
