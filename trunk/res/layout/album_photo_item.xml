@@ -11,15 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_margin_small"
-        android:layout_marginBottom="@dimen/layout_margin_small"
-        android:src="@drawable/icon"/>
+        android:padding="3dip"
+        android:background="@drawable/bg_circle"/>
 
     <TextView 
         android:id="@+id/tName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"
-        android:ellipsize="marquee"
+        android:ellipsize="end"
         android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:layout_margin="@dimen/layout_margin_xsmall"
         android:text="name"/>
 </LinearLayout>

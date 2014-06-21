@@ -34,4 +34,12 @@
 	        android:textColor="@android:color/white"
 	        android:text="Sep,2014"/>
 	</LinearLayout>
+	
+	<ImageView 
+	    android:id="@+id/img_more"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignTop="@+id/imgPhotoItem"
+	    android:layout_alignRight="@+id/imgPhotoItem"
+	    android:src="@drawable/ic_more"/>
 </RelativeLayout>

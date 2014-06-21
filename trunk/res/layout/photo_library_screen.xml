@@ -3,21 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.fivehourenergy.photoeditor.widget.staggeredgrid.StaggeredGridView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/staggered_grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:column_count="2" />
-
     <GridView
         android:id="@+id/grid_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000"
+        android:background="@drawable/bg_gold"
         android:gravity="center"
         android:numColumns="auto_fit"
+        android:listSelector="@null"
         android:stretchMode="columnWidth" >
     </GridView>
 
