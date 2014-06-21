@@ -141,11 +141,12 @@ public class QuickActionMenu {
 //		listActionNormal.add(mActionMenuAbout);
 //		listActionNormal.add(mActionMenuDesign);
 //		listActionNormal.add(mActionMenuSortPhoto);
+		mActionMenuSlideShow.addText(null);
 		listActionNormal.add(mActionMenuSlideShow);
 		listActionNormal.add(mActionMenuGridNormal);
 		listActionNormal.add(mActionMenuGridDate);
 		listActionNormal.add(mActionMenuCurver);
-		listActionNormal.add(mActionMenuStaggered);
+//		listActionNormal.add(mActionMenuStaggered);
 //		listActionNormal.add(mActionMenuCopyAll);
 //		listActionNormal.add(mActionMenuPaste);
 		return listActionNormal;
@@ -154,21 +155,21 @@ public class QuickActionMenu {
 	
 	public ArrayList<ActionMenuItem> getListActionPhoto(PhotoItemModel model){
 		ArrayList<ActionMenuItem> listActionPhoto = new ArrayList<ActionMenuItem>();
-		listActionPhoto.add(mActionMenuWallPaper);
-//		listActionPhoto.add(mActionMenuCopy);
+		mActionMenuSlideShow.addText("Slide Show");
+		listActionPhoto.add(mActionMenuEdit);
 		listActionPhoto.add(mActionMenuSlideShow);
-//		listActionPhoto.add(mActionMenuMove);
+		listActionPhoto.add(mActionMenuShare);
 		if(model!=null && !model.isFavourite) 
 			listActionPhoto.add(mActionMenuAddFavourite);
+		listActionPhoto.add(mActionMenuWallPaper);
 		listActionPhoto.add(mActionMenuDelete);
-		listActionPhoto.add(mActionMenuShare);
 		listActionPhoto.add(mActionMenuInfo);
-		listActionPhoto.add(mActionMenuEdit);
 		return listActionPhoto;
 	}
 	
 	public ArrayList<ActionMenuItem> getListActionFavourite(){
 		ArrayList<ActionMenuItem> listActionFavourite = new ArrayList<ActionMenuItem>();
+		mActionMenuSlideShow.addText("Slide Show");
 		listActionFavourite.add(mActionMenuWallPaper);
 		listActionFavourite.add(mActionMenuEdit);
 		listActionFavourite.add(mActionMenuRemove);
@@ -183,8 +184,8 @@ public class QuickActionMenu {
 		
 		mActionMenuSlideShow = new ActionMenuItem();
 		mActionMenuSlideShow.addAction(ActionMenu.ACTION_SLIDE_SHOW)
-					.addResIcon(R.drawable.ic_slideshow);
-//					.addText("Slide Show");
+					.addResIcon(R.drawable.ic_slideshow)
+					.addText("Slide Show");
 		
 		mActionMenuSortPhoto = new ActionMenuItem();
 		mActionMenuSortPhoto.addAction(ActionMenu.ACTION_SORT_PHOTO)
@@ -223,13 +224,13 @@ public class QuickActionMenu {
 		
 		mActionMenuAddFavourite = new ActionMenuItem();
 		mActionMenuAddFavourite.addAction(ActionMenu.ACTION_ADD_FAVOURITE)
-					.addResIcon(R.drawable.icon)
-					.addText("Add Favourite");
+					.addResIcon(R.drawable.ic_favourite)
+					.addText("Favourite");
 		
 		mActionMenuDelete = new ActionMenuItem();
 		mActionMenuDelete.addAction(ActionMenu.ACTION_DELETE)
-					.addResIcon(R.drawable.icon)
-					.addText("Delete");
+					.addResIcon(R.drawable.ic_menu_delete)
+					.addText("Delete Photo");
 		
 		mActionMenuMove = new ActionMenuItem();
 		mActionMenuMove.addAction(ActionMenu.ACTION_MOVE)
@@ -243,7 +244,7 @@ public class QuickActionMenu {
 		
 		mActionMenuEdit = new ActionMenuItem();
 		mActionMenuEdit.addAction(ActionMenu.ACTION_EDIT_PHOTO)
-					.addResIcon(R.drawable.icon)
+					.addResIcon(R.drawable.ic_edit)
 					.addText("Edit Photo");
 		
 		mActionMenuSetPassword = new ActionMenuItem();
@@ -253,13 +254,13 @@ public class QuickActionMenu {
 		
 		mActionMenuWallPaper = new ActionMenuItem();
 		mActionMenuWallPaper.addAction(ActionMenu.ACTION_SET_WALLPAPER)
-					.addResIcon(R.drawable.icon)
-					.addText("Set WallPaper");
+					.addResIcon(R.drawable.ic_menu_wallpaper)
+					.addText("WallPaper");
 		
 		mActionMenuShare = new ActionMenuItem();
 		mActionMenuShare.addAction(ActionMenu.ACTION_SHARE)
-					.addResIcon(R.drawable.icon)
-					.addText("Share");
+					.addResIcon(R.drawable.ic_menu_share_holo_dark)
+					.addText("Share Photo");
 		
 		mActionMenuRemove = new ActionMenuItem();
 		mActionMenuRemove.addAction(ActionMenu.ACTION_REMOVE_FAVOURITE)
@@ -288,7 +289,7 @@ public class QuickActionMenu {
 		
 		mActionMenuInfo = new ActionMenuItem();
 		mActionMenuInfo.addAction(ActionMenu.ACTION_VIEW_INFO)
-					.addResIcon(R.drawable.icon)
+					.addResIcon(R.drawable.ic_info)
 					.addText("Photo Info");
 		
 	}

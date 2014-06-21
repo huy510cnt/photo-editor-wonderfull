@@ -25,7 +25,6 @@ import com.fivehourenergy.photoeditor.ui.PhotoLibraryAdapter.GridViewType;
 import com.fivehourenergy.photoeditor.ui.base.BasePhotoFragment;
 import com.fivehourenergy.photoeditor.util.UniversalImageLoader;
 import com.fivehourenergy.photoeditor.widget.quickaction3d.QuickAction;
-import com.fivehourenergy.photoeditor.widget.staggeredgrid.StaggeredGridView;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 
 // TODO: Auto-generated Javadoc
@@ -36,8 +35,6 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 
 	/** The m grid view. */
 	private GridView mGridView;
-	
-	private StaggeredGridView mStaggeredGridView;
 	
 	/** The m adapter. */
 	private PhotoLibraryAdapter mAdapter;
@@ -53,7 +50,6 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 			ViewGroup container) {
 		View v = inflater.inflate(R.layout.photo_library_screen, null);
 		initGridView(v);
-		initStaggeredGridView(v);
 		showPhotos();
 		return v;
 	}
@@ -97,19 +93,6 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 		});
 	}
 	
-	private void initStaggeredGridView(View parent){
-		mStaggeredGridView = (StaggeredGridView) parent.findViewById(R.id.staggered_grid);
-		mStaggeredGridView.setColumnCount(2);
-		mStaggeredGridView.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				
-			}
-		});
-	}
-
 	/**
 	 * Show photos.
 	 */
@@ -118,32 +101,20 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 		mDatas = DataController.getInstance().getCurrentListPhoto();
 		if(mDatas == null) return;
 		GridViewType type = DataController.getInstance().getCurrentGridType();
-		mAdapter = new PhotoLibraryAdapter(getActivity(), mDatas,type);
+		mAdapter = new PhotoLibraryAdapter(getActivity(), this,mDatas,type);
 		switch (type) {
 		case NORMAL:
-			mGridView.setVisibility(View.VISIBLE);
 			mGridView.setNumColumns(3);
 			mGridView.setAdapter(mAdapter);
-			mStaggeredGridView.setVisibility(View.GONE);
 			break;
 		case IMAGE_CURVER:
-			mGridView.setVisibility(View.VISIBLE);
 			mGridView.setNumColumns(3);
 			mGridView.setAdapter(mAdapter);
-			mStaggeredGridView.setVisibility(View.GONE);
 			break;
 			
 		case IMAGE_WITH_DATE:
-			mGridView.setVisibility(View.VISIBLE);
 			mGridView.setNumColumns(2);
 			mGridView.setAdapter(mAdapter);
-			mStaggeredGridView.setVisibility(View.GONE);
-			break;
-		case STAGGED_LIST:
-			mStaggeredGridView.setVisibility(View.VISIBLE);
-			mStaggeredGridView.setColumnCount(2);
-			mStaggeredGridView.setAdapter(mAdapter);
-			mGridView.setVisibility(View.GONE);
 			break;
 		default:
 			break;
@@ -163,6 +134,25 @@ public class PhotoLibraryFragment extends BasePhotoFragment{
 		}
 		showPhotos();
 	}
+	
+	
+	public void showPopupAtPosition(View v,int pos){
+    	int type;
+		if(getMainActiviy().currentScreenPos == LeftMenuFragment.FAVOURITE_POS){
+			type = QuickActionMenu.FAVOURITE_TYPE;
+		}else{
+			type = QuickActionMenu.PHOTO_TYPE;
+		}
+		final ActionInput input = new ActionInput();
+		input.activity = getActivity();
+		input.anchor = v;
+		input.menuType = type;
+		input.orientation = QuickAction.HORIZONTAL;
+		input.data = mAdapter.getItem(pos);
+		input.data.isFavourite = DatabaseController.getInstanceOfDataSource().isFavourite(mAdapter.getItem(pos).photoAbsolutePath);
+		input.listener = new OnActionItemClick(mAdapter.getItem(pos),pos);
+		QuickActionMenu.getInstance().showActionMenu3D(input);
+    }
 	
 	/**
 	 * The Class OnActionItemClick.

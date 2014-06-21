@@ -26,7 +26,7 @@ private static DataController INSTANCE = null;
 	 * Instantiates a new data controller.
 	 */
 	
-	private GridViewType currentGridType = GridViewType.NORMAL;
+	private GridViewType currentGridType = GridViewType.IMAGE_WITH_DATE;
 	
 	private DataController(){
 		

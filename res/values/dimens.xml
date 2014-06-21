@@ -23,4 +23,6 @@
     <dimen name="text_size_special_big">38sp</dimen>
     <dimen name="text_size_normal">14sp</dimen>
     <!-- COMMON FOR TEXT -->
+    
+    <dimen name="item_curver_normal">10dip</dimen>
 </resources>
